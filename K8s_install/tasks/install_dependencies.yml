@@ -1,0 +1,16 @@
+- name: Install dependencies
+  shell: mkdir -p /etc/apt/keyrings
+  become: yes
+
+- name: Download and install GPG keys
+  shell: -fsSL https://pkgs.k8s.io/core:/stable:/v1.30/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+  become: yes 
+
+- name: Add repos to list
+  shell: echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.30/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
+  become: yes
+
+- name: Update cache
+  apt:
+    update_cache: yes
+  become: yes

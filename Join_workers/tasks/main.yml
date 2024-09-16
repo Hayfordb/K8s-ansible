@@ -1,0 +1,9 @@
+---
+# tasks file for Join_workers
+
+- name: Join workers node
+  shell: "{{ hostvars['k8s-master']['join_command'] }}"
+
+
+
+

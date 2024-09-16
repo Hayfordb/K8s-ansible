@@ -1,0 +1,16 @@
+---
+# tasks file for swapShutDown
+
+- name: Disable swap
+  command: swapoff -a
+  ignore_errors: yes
+
+- name: Delete swap file
+  ansible.builtin.file:
+    path: /swap.img
+    state: absent
+
+- name: Reboot host's
+  ansible.builtin.reboot:
+    msg: "Reboot for apply swap configs changes"
+    reboot_timeout: 40

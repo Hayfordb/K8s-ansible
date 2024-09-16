@@ -1,0 +1,22 @@
+- name: K8s_UP
+  hosts: all
+  become: yes
+  vars_files:
+    - ./vault/secrets.yml
+
+  roles:
+  
+    - swapShutDown
+    - update_packages_role
+    - K8s_install
+    - K8s_init_master_node
+
+- name: K8s_join
+  hosts: worker
+  become: yes
+  vars_files:
+    - ./vault/secrets.yml
+
+  roles:
+    
+    - Join_workers

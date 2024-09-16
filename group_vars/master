@@ -1,0 +1,4 @@
+ansible_host: 192.168.10.10
+ansible_user: test
+ansible_ssh_private_key_file: /home/kenan/.ssh/id_ed25519
+ansible_python_interpreter: /usr/bin/python3.12

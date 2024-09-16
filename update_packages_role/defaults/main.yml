@@ -1,0 +1,7 @@
+---
+# defaults file for update_packages_role
+package_list:
+  - apt-transport-https
+  - ca-certificates
+  - curl
+  - gpg

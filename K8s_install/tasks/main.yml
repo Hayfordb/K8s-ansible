@@ -1,0 +1,4 @@
+---
+# tasks file for K8s_install
+- include_tasks: install_dependencies.yml
+- include_tasks: configure_kubernetes.yml

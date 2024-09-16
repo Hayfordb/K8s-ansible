@@ -1,0 +1,7 @@
+---
+# defaults file for K8s_install
+package_list:
+  - kubelet
+  - kubeadm
+  - kubectl
+  - containerd
